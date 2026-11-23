@@ -5,8 +5,12 @@ import CategoryTile from "@/components/CategoryTile";
 import Placeholder from "@/components/Placeholder";
 import { IconArrow, IconCheck, IconClock, IconPhone, IconPin, IconRoute, IconTruck, IconWhatsApp } from "@/components/Icons";
 import ContactsBlock from "@/components/ContactsBlock";
+import BrandTicker from "@/components/BrandTicker";
+import DeliveryForm from "@/components/DeliveryForm";
 import Faq from "@/components/Faq";
 import Reviews from "@/components/Reviews";
+import VideoBlock from "@/components/VideoBlock";
+import WhyUs from "@/components/WhyUs";
 import { categories, siteData } from "@/lib/content";
 import { generalQuestion, waLink } from "@/lib/whatsapp";
 
@@ -21,10 +25,10 @@ export default function HomePage() {
             <p className="text-sm font-medium uppercase tracking-wide text-accent">
               {siteData.address.locality}, {siteData.address.region}
             </p>
-            <h1 className="mt-3 text-4xl font-bold leading-tight tracking-tight md:text-5xl">
+            <h1 className="hero-title mt-3 text-4xl font-bold leading-tight tracking-tight md:text-5xl">
               Стройматериалы и сантехника в Караоткеле
             </h1>
-            <p className="mt-5 max-w-xl text-lg text-muted">
+            <p className="hero-sub mt-5 max-w-xl text-lg text-muted">
               Ежедневно с {siteData.hours.opens} до {siteData.hours.closes}. Ответим в WhatsApp: подскажем наличие и
               сравним варианты. Цены — по запросу.
             </p>
@@ -138,27 +142,26 @@ export default function HomePage() {
         </div>
       </section>
 
-      {/* Бренды */}
+      {/* Бренды: лента текстом */}
       <section className="band-white" aria-labelledby="brands-title">
-        <div className="mx-auto max-w-6xl px-4 py-14 md:px-6">
-          <h2 id="brands-title" className="text-3xl font-bold tracking-tight">
-            Бренды в наличии
-          </h2>
-          <ul className="mt-6 flex flex-wrap gap-3">
-            {siteData.brands.map((b) => (
-              <li key={b} className="rounded-full border border-line px-4 py-2 text-[15px] font-medium">
-                {b}
-              </li>
-            ))}
-          </ul>
-          <p className="mt-4 text-sm text-muted">
-            Полный список брендов и наличие уточняйте в WhatsApp.{" "}
-            <Link href="/brands" className="underline underline-offset-4">
+        <div className="mx-auto max-w-6xl px-4 pt-14 md:px-6">
+          <div className="flex items-end justify-between gap-4">
+            <h2 id="brands-title" className="text-3xl font-bold tracking-tight">
+              Бренды в наличии
+            </h2>
+            <Link href="/brands" className="hidden text-sm font-semibold text-accent hover:underline sm:block">
               Все бренды
             </Link>
-          </p>
+          </div>
+          <p className="mt-2 text-sm text-muted">Полный список и наличие уточняйте в WhatsApp.</p>
+        </div>
+        <div className="mt-8">
+          <BrandTicker />
         </div>
       </section>
+
+      {/* Почему нас выбирают: только проверяемые факты */}
+      <WhyUs />
 
       {/* Доверие: рейтинг, часы, оплата, адрес */}
       <section className="band-warm" aria-labelledby="trust-title">
@@ -251,8 +254,14 @@ export default function HomePage() {
               Уточнить в WhatsApp
             </a>
           </div>
+          <div className="mt-8">
+            <DeliveryForm />
+          </div>
         </div>
       </section>
+
+      {/* Место под видео магазина (пока заглушка) */}
+      <VideoBlock />
 
       {/* Финальный призыв */}
       <section className="band-warm">

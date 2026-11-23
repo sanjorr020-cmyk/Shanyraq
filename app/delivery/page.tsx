@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import DeliveryForm from "@/components/DeliveryForm";
 import Placeholder from "@/components/Placeholder";
 import { IconTruck, IconWhatsApp } from "@/components/Icons";
 import { siteData } from "@/lib/content";
@@ -51,6 +52,11 @@ export default function DeliveryPage() {
             Оплата в магазине. Онлайн-оплата на сайте не принимается.
           </p>
         </div>
+      </div>
+
+      <div className="mt-10">
+        <h2 className="mb-4 text-2xl font-semibold">Доставка и список</h2>
+        <DeliveryForm />
       </div>
 
       <div className="mt-8 rounded-2xl bg-surface p-6 text-muted">

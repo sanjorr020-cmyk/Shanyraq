@@ -102,3 +102,45 @@ body {
   outline: 2px solid var(--color-accent);
   outline-offset: 2px;
 }
+
+/* Заметнее появление заголовка первого экрана: подъём, размытие и растворение. Текст виден и без анимации. */
+@keyframes hero-rise {
+  from { opacity: 0; transform: translateY(24px); filter: blur(6px); }
+  to { opacity: 1; transform: none; filter: none; }
+}
+.hero-title {
+  animation: hero-rise 0.9s cubic-bezier(0.22, 1, 0.36, 1) both;
+}
+.hero-sub {
+  animation: hero-rise 0.9s cubic-bezier(0.22, 1, 0.36, 1) 0.15s both;
+}
+
+/* Лента брендов: только названия текстом, без логотипов. Пауза при наведении. */
+@keyframes ticker {
+  from { transform: translateX(0); }
+  to { transform: translateX(-50%); }
+}
+.ticker-track {
+  display: flex;
+  width: max-content;
+  animation: ticker 38s linear infinite;
+}
+.ticker:hover .ticker-track {
+  animation-play-state: paused;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .hero-title,
+  .hero-sub {
+    animation: none !important;
+  }
+  .ticker-track {
+    animation: none !important;
+    flex-wrap: wrap;
+    width: auto;
+    justify-content: center;
+  }
+  .ticker-track [aria-hidden="true"] {
+    display: none;
+  }
+}
