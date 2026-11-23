@@ -1,7 +1,7 @@
 "use client";
 
 import Link from "next/link";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { IconClose, IconList, IconMenu, IconPhone, IconSearch, IconWhatsApp } from "@/components/Icons";
 import { useList } from "@/components/ListContext";
 import { generalQuestion, waLink } from "@/lib/whatsapp";
@@ -17,14 +17,33 @@ const nav = [
 
 export default function Header() {
   const [menuOpen, setMenuOpen] = useState(false);
+  const [scrolled, setScrolled] = useState(false);
   const { count, setOpen } = useList();
 
+  // Шапка уплотняется после прокрутки: один обработчик, через requestAnimationFrame, без библиотек
+  useEffect(() => {
+    let frame = 0;
+    const onScroll = () => {
+      if (frame) return;
+      frame = requestAnimationFrame(() => {
+        frame = 0;
+        setScrolled(window.scrollY > 24);
+      });
+    };
+    onScroll();
+    window.addEventListener("scroll", onScroll, { passive: true });
+    return () => {
+      window.removeEventListener("scroll", onScroll);
+      if (frame) cancelAnimationFrame(frame);
+    };
+  }, []);
+
   return (
-    <header className="sticky top-0 z-40 border-b border-line bg-white">
-      <div className="mx-auto flex h-16 max-w-6xl items-center gap-4 px-4 md:px-6">
+    <header className="site-header sticky top-0 z-40 border-b border-line bg-white" data-scrolled={scrolled}>
+      <div className="hdr-inner mx-auto flex max-w-6xl items-center gap-4 px-4 md:px-6">
         <Link href="/" aria-label="Shanyraq — на главную" className="shrink-0">
           {/* Временный логотип; выбранный вариант подставляется сюда */}
-          <img src="/logo/logo-4-horizontal-header.svg" alt="Shanyraq" width={203} height={36} className="h-9 w-auto" />
+          <img src="/logo/logo-4-horizontal-header.svg" alt="Shanyraq" width={203} height={36} className="hdr-logo w-auto" />
         </Link>
 
         <nav aria-label="Основное меню" className="ml-6 hidden items-center gap-5 lg:flex">

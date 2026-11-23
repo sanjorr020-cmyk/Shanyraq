@@ -1,5 +1,6 @@
 import Link from "next/link";
 import type { Category } from "@/lib/content";
+import RevealMedia from "@/components/RevealMedia";
 
 export default function CategoryTile({ category, priority = false }: { category: Category; priority?: boolean }) {
   return (
@@ -9,16 +10,18 @@ export default function CategoryTile({ category, priority = false }: { category:
     >
       <div className="zoom aspect-[4/3] overflow-hidden bg-surface">
         {/* Обложка AI: заменить на реальное фото магазина */}
-        <img
-          src={category.cover}
-          alt={category.title}
-          loading={priority ? "eager" : "lazy"}
-          fetchPriority={priority ? "high" : "auto"}
-          decoding="async"
-          width={800}
-          height={600}
-          className="h-full w-full object-cover"
-        />
+        <RevealMedia enabled={!priority}>
+          <img
+            src={category.cover}
+            alt={category.title}
+            loading={priority ? "eager" : "lazy"}
+            fetchPriority={priority ? "high" : "auto"}
+            decoding="async"
+            width={800}
+            height={600}
+            className="h-full w-full object-cover"
+          />
+        </RevealMedia>
       </div>
       <div className="p-4">
         <h3 className="text-[17px] font-semibold leading-snug">{category.title}</h3>

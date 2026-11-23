@@ -103,10 +103,10 @@ body {
   outline-offset: 2px;
 }
 
-/* Заметнее появление заголовка первого экрана: подъём, размытие и растворение. Текст виден и без анимации. */
+/* Появление заголовка первого экрана: прозрачность и подъём (без blur). Текст виден и без анимации. */
 @keyframes hero-rise {
-  from { opacity: 0; transform: translateY(24px); filter: blur(6px); }
-  to { opacity: 1; transform: none; filter: none; }
+  from { opacity: 0; transform: translateY(20px); }
+  to { opacity: 1; transform: none; }
 }
 .hero-title {
   animation: hero-rise 0.9s cubic-bezier(0.22, 1, 0.36, 1) both;
@@ -142,5 +142,45 @@ body {
   }
   .ticker-track [aria-hidden="true"] {
     display: none;
+  }
+}
+
+/* Шапка уплотняется после прокрутки: меньше высота и логотип. Освобождает место на телефоне. */
+.site-header .hdr-inner {
+  height: 4rem;
+  transition: height 0.25s ease;
+}
+.site-header .hdr-logo {
+  height: 2.25rem;
+  transition: height 0.25s ease;
+}
+.site-header[data-scrolled="true"] .hdr-inner {
+  height: 3.25rem;
+}
+.site-header[data-scrolled="true"] .hdr-logo {
+  height: 1.75rem;
+}
+@media (prefers-reduced-motion: reduce) {
+  .site-header .hdr-inner,
+  .site-header .hdr-logo {
+    transition: none;
+  }
+}
+
+/* Появление фото ниже первого экрана. Включается только при наличии класса .js на <html>. */
+html.js .reveal-media {
+  opacity: 0;
+  transform: translateY(12px);
+  transition: opacity 0.5s ease, transform 0.5s ease;
+}
+html.js .reveal-media.is-in {
+  opacity: 1;
+  transform: none;
+}
+@media (prefers-reduced-motion: reduce) {
+  html.js .reveal-media {
+    opacity: 1;
+    transform: none;
+    transition: none;
   }
 }
