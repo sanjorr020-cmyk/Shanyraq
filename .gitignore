@@ -3,3 +3,11 @@ node_modules/
 .next/
 next-env.d.ts
 *.tsbuildinfo
+
+# Секреты и локальные файлы
+.env
+.env.*
+!.env.example
+.vercel
+*.pem
+*.key
