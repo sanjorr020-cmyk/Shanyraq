@@ -1,0 +1,122 @@
+<!doctype html>
+<html lang="ru">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Shanyraq — варианты логотипа</title>
+<style>
+  :root { color-scheme: light; }
+  * { box-sizing: border-box; }
+  body { margin: 0; font-family: 'Golos Text', 'Helvetica Neue', Arial, sans-serif; color: #1C1B1A; background: #F5F5F3; padding: 32px 24px 64px; }
+  h1 { font-size: 28px; margin: 0 0 6px; }
+  p.lead { margin: 0 0 32px; color: #6B6B6B; font-size: 15px; }
+  .variant { background: #fff; border: 1px solid #E4E4E0; border-radius: 12px; padding: 24px; margin-bottom: 24px; }
+  .variant h2 { font-size: 18px; margin: 0 0 4px; }
+  .variant .desc { font-size: 14px; color: #6B6B6B; margin: 0 0 18px; }
+  .grid { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
+  .cell { border-radius: 10px; padding: 18px; display: flex; flex-direction: column; gap: 14px; }
+  .cell.white { background: #FFFFFF; border: 1px solid #E4E4E0; }
+  .cell.dark { background: #161514; color: #fff; }
+  .row { display: flex; align-items: center; gap: 18px; flex-wrap: wrap; }
+  .label { font-size: 12px; color: #8A8A85; min-width: 110px; }
+  .dark .label { color: #9A9A95; }
+  .hdr { height: 40px; }
+  .hdr-h { height: 56px; }
+  .fav { width: 32px; height: 32px; }
+  .wide { max-width: 100%; height: 56px; }
+  .mini-hdr { height: 44px; display: flex; align-items: center; padding: 0 12px; border-radius: 8px; }
+  .dark .mini-hdr { background: #161514; }
+  .white .mini-hdr { background: #FFFFFF; border: 1px solid #E4E4E0; }
+  @media (max-width: 720px) { .grid { grid-template-columns: 1fr; } }
+</style>
+</head>
+<body>
+  <h1>Shanyraq — 5 вариантов логотипа</h1>
+  <p class="lead">Цвета и знак взяты с вывески: синий квадрат, белый круг с линиями шанырака, красная надпись. Все варианты плоские, без градиентов и теней. Текст переведён в контуры.</p>
+
+  <section class="variant">
+    <h2>1. Точная плоская копия вывески</h2>
+    <p class="desc">Тот же знак и цвета, тяжёлый вес надписи, без 3D-объёма и жёлтой обводки.</p>
+    <div class="grid">
+      <div class="cell white">
+        <span class="label">Белый фон</span>
+        <div class="row"><img class="hdr" src="logo-1-exact-flat.svg" alt="Shanyraq 1"><span class="label">шапка 40px</span></div>
+        <div class="row"><img class="fav" src="logo-3-symbol.svg" alt="фавикон 1"><span class="label">фавикон 32px (знак)</span></div>
+      </div>
+      <div class="cell dark">
+        <span class="label">Тёмный фон</span>
+        <div class="row"><img class="hdr" src="logo-1-exact-flat.svg" alt="Shanyraq 1 dark"><span class="label">шапка 40px</span></div>
+        <div class="row"><img class="fav" src="logo-3-symbol.svg" alt="фавикон 1 dark"><span class="label">фавикон 32px (знак)</span></div>
+      </div>
+    </div>
+  </section>
+
+  <section class="variant">
+    <h2>2. Современный шрифт</h2>
+    <p class="desc">Те же знак и цвета, шрифт Golos Text 800, чуть более спокойный и читаемый на телефоне.</p>
+    <div class="grid">
+      <div class="cell white">
+        <span class="label">Белый фон</span>
+        <div class="row"><img class="hdr" src="logo-2-modern.svg" alt="Shanyraq 2"><span class="label">шапка 40px</span></div>
+        <div class="row"><img class="fav" src="logo-3-symbol.svg" alt="фавикон 2"><span class="label">фавикон 32px (знак)</span></div>
+      </div>
+      <div class="cell dark">
+        <span class="label">Тёмный фон</span>
+        <div class="row"><img class="hdr" src="logo-2-modern.svg" alt="Shanyraq 2 dark"><span class="label">шапка 40px</span></div>
+        <div class="row"><img class="fav" src="logo-3-symbol.svg" alt="фавикон 2 dark"><span class="label">фавикон 32px (знак)</span></div>
+      </div>
+    </div>
+  </section>
+
+  <section class="variant">
+    <h2>3. Только знак шанырака</h2>
+    <p class="desc">Упрощённый знак для фавикона, иконки соцсетей и аватара. Надпись не нужна.</p>
+    <div class="grid">
+      <div class="cell white">
+        <span class="label">Белый фон</span>
+        <div class="row"><img class="hdr" src="logo-3-symbol.svg" alt="знак белый"><span class="label">40px</span></div>
+        <div class="row"><img class="fav" src="logo-3-symbol.svg" alt="фавикон 3"><span class="label">фавикон 32px</span></div>
+      </div>
+      <div class="cell dark">
+        <span class="label">Тёмный фон</span>
+        <div class="row"><img class="hdr" src="logo-3-symbol.svg" alt="знак тёмный"><span class="label">40px</span></div>
+        <div class="row"><img class="fav" src="logo-3-symbol.svg" alt="фавикон 3 dark"><span class="label">фавикон 32px</span></div>
+      </div>
+    </div>
+  </section>
+
+  <section class="variant">
+    <h2>4. Горизонтальная версия для шапки</h2>
+    <p class="desc">Знак слева, надпись справа. Для шапки сайта и печатных материалов.</p>
+    <div class="grid">
+      <div class="cell white">
+        <span class="label">Белый фон</span>
+        <div class="row"><img class="hdr-h" src="logo-4-horizontal-header.svg" alt="горизонтальная"><span class="label">шапка 56px</span></div>
+        <div class="row"><img class="fav" src="logo-3-symbol.svg" alt="фавикон 4"><span class="label">фавикон 32px (знак)</span></div>
+      </div>
+      <div class="cell dark">
+        <span class="label">Тёмный фон</span>
+        <div class="row"><img class="hdr-h" src="logo-4-horizontal-header.svg" alt="горизонтальная dark"><span class="label">шапка 56px</span></div>
+        <div class="row"><img class="fav" src="logo-3-symbol.svg" alt="фавикон 4 dark"><span class="label">фавикон 32px (знак)</span></div>
+      </div>
+    </div>
+  </section>
+
+  <section class="variant">
+    <h2>5. Монохромная версия</h2>
+    <p class="desc">Одна краска. Тёмная версия — для светлого фона, белая — для тёмного. Каждая показана на своём фоне.</p>
+    <div class="grid">
+      <div class="cell white">
+        <span class="label">Белый фон, тёмная версия</span>
+        <div class="row"><img class="hdr" src="logo-5-mono-dark-on-white.svg" alt="моно тёмная"><span class="label">шапка 40px</span></div>
+        <div class="row"><img class="fav" src="logo-3-symbol.svg" alt="фавикон 5"><span class="label">фавикон 32px (знак)</span></div>
+      </div>
+      <div class="cell dark">
+        <span class="label">Тёмный фон, белая версия</span>
+        <div class="row"><img class="hdr" src="logo-5-mono-light-on-dark.svg" alt="моно белая"><span class="label">шапка 40px</span></div>
+        <div class="row"><img class="fav" src="logo-3-symbol.svg" alt="фавикон 5 dark"><span class="label">фавикон 32px (знак)</span></div>
+      </div>
+    </div>
+  </section>
+</body>
+</html>
