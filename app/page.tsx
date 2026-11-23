@@ -2,6 +2,7 @@ import Link from "next/link";
 import CategoryTile from "@/components/CategoryTile";
 import Placeholder from "@/components/Placeholder";
 import { IconArrow, IconCheck, IconClock, IconPhone, IconPin, IconRoute, IconTruck, IconWhatsApp } from "@/components/Icons";
+import ContactsBlock from "@/components/ContactsBlock";
 import { categories, siteData } from "@/lib/content";
 import { generalQuestion, waLink } from "@/lib/whatsapp";
 
@@ -266,6 +267,8 @@ export default function HomePage() {
           </div>
         </div>
       </section>
+
+      <ContactsBlock />
     </>
   );
 }
