@@ -26,8 +26,37 @@ h3 {
   text-wrap: balance;
 }
 
-body {
+/* Фон сайта: тёплый светло-серый; секции чередуются светлые и графитовые */
+.band-warm {
+  background: #f4f2ee;
+}
+.band-white {
   background: #ffffff;
+}
+.band-ink {
+  background: #1c1b1a;
+  color: #ffffff;
+}
+
+/* Декоративный узор из знака шанырака: 5% прозрачности, за текстом */
+.pattern-hero {
+  position: relative;
+  isolation: isolate;
+  overflow: hidden;
+}
+.pattern-hero::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: -1;
+  background-image: url("/pattern-shanyraq.svg");
+  background-size: 220px 220px;
+  opacity: 0.05;
+  pointer-events: none;
+}
+
+body {
+  background: #f4f2ee;
   color: var(--color-ink);
   font-family: var(--font-sans);
   font-size: 16px;

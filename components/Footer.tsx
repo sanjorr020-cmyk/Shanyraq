@@ -15,7 +15,7 @@ const links = [
 
 export default function Footer() {
   return (
-    <footer className="mt-20 border-t border-line bg-surface pb-24 md:pb-0">
+    <footer className="border-t border-line bg-white pb-24 md:pb-0">
       <div className="mx-auto grid max-w-6xl gap-10 px-4 py-12 md:grid-cols-3 md:px-6">
         <div>
           <img src="/logo/logo-4-horizontal-header.svg" alt="Shanyraq" width={225} height={40} className="h-10 w-auto" />
