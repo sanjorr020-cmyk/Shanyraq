@@ -1,4 +1,5 @@
 import { IconClock, IconPhone, IconPin, IconRoute, IconWhatsApp } from "@/components/Icons";
+import MapBlock from "@/components/MapBlock";
 import Reviews from "@/components/Reviews";
 import { siteData } from "@/lib/content";
 import { generalQuestion, waLink } from "@/lib/whatsapp";
@@ -80,23 +81,7 @@ export default function ContactsBlock() {
         </div>
 
         <div className="flex flex-col gap-3">
-          <a
-            href={siteData.rating.url}
-            target="_blank"
-            rel="noopener noreferrer"
-            className="lift block overflow-hidden rounded-2xl border border-line bg-surface"
-            aria-label="Открыть магазин на карте в 2ГИС"
-          >
-            <img
-              src="/map-schematic.svg"
-              alt="Схема: магазин Shanyraq на ул. Акан Серы, остановка на ул. Дружбы в 2 минутах пешком"
-              width={640}
-              height={400}
-              loading="lazy"
-              decoding="async"
-              className="h-auto w-full"
-            />
-          </a>
+          <MapBlock />
           <a
             href={siteData.rating.url}
             target="_blank"

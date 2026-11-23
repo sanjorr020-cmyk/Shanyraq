@@ -11,7 +11,7 @@ const nav = [
   { href: "/catalog", label: "Каталог" },
   { href: "/calculator", label: "Калькулятор" },
   { href: "/builders", label: "Строителям" },
-  { href: "/delivery", label: "Доставка и оплата" },
+  { href: "/delivery", label: "Доставка" },
   { href: "/contacts", label: "Контакты" },
 ];
 
@@ -29,7 +29,7 @@ export default function Header() {
 
         <nav aria-label="Основное меню" className="ml-6 hidden items-center gap-5 lg:flex">
           {nav.map((item) => (
-            <Link key={item.href} href={item.href} className="text-[15px] text-ink hover:text-brand">
+            <Link key={item.href} href={item.href} className="whitespace-nowrap text-[15px] text-ink hover:text-brand">
               {item.label}
             </Link>
           ))}
