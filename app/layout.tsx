@@ -7,6 +7,7 @@ import MobileBar from "@/components/MobileBar";
 import ListPanel from "@/components/ListPanel";
 import { ListProvider } from "@/components/ListContext";
 import Analytics from "@/components/Analytics";
+import CookieConsent from "@/components/CookieConsent";
 import SiteMotion from "@/components/SiteMotion";
 import JsonLd from "@/components/JsonLd";
 import { siteData } from "@/lib/content";
@@ -60,6 +61,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
           <MobileBar />
           <ListPanel />
           <SiteMotion />
+          <CookieConsent />
         </ListProvider>
         <JsonLd />
         <Analytics />

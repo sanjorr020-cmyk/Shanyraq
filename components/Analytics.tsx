@@ -1,29 +1,60 @@
-import Script from "next/script";
+"use client";
+
+import { useEffect } from "react";
 import { siteData } from "@/lib/content";
 
+export const CONSENT_KEY = "shanyraq-consent";
+export const CONSENT_EVENT = "shanyraq-consent-changed";
+
 /**
- * Места под аналитику. ID берутся из content/site.json (analytics.*).
- * Пока пустые — ничего не подключается.
+ * Аналитика грузится ТОЛЬКО после согласия посетителя (баннер cookie).
+ * Без согласия скрипты Метрики и GA не загружаются вовсе.
+ * ID берутся из content/site.json → analytics; пустые значения — ничего не подключается.
  */
 export default function Analytics() {
-  const ym = siteData.analytics.yandexMetrikaId;
-  const ga = siteData.analytics.ga4Id;
+  useEffect(() => {
+    const load = () => {
+      let consent: string | null = null;
+      try {
+        consent = window.localStorage.getItem(CONSENT_KEY);
+      } catch {
+        consent = null;
+      }
+      if (consent !== "accepted") return;
+      if (document.getElementById("analytics-loaded")) return;
 
-  return (
-    <>
-      {ym && (
-        <Script id="yandex-metrika" strategy="afterInteractive">
-          {`(function(m,e,t,r,i,k,a){m[i]=m[i]||function(){(m[i].a=m[i].a||[]).push(arguments)};m[i].l=1*new Date();for(var j=0;j<document.scripts.length;j++){if(document.scripts[j].src===r){return;}}k=e.createElement(t),a=e.getElementsByTagName(t)[0],k.async=1,k.src=r,a.parentNode.insertBefore(k,a)})(window,document,"script","https://mc.yandex.ru/metrika/tag.js","ym");ym(${ym},"init",{clickmap:true,trackLinks:true,accurateTrackBounce:true});`}
-        </Script>
-      )}
-      {ga && (
-        <>
-          <Script src={`https://www.googletagmanager.com/gtag/js?id=${ga}`} strategy="afterInteractive" />
-          <Script id="ga4" strategy="afterInteractive">
-            {`window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag('js',new Date());gtag('config','${ga}');`}
-          </Script>
-        </>
-      )}
-    </>
-  );
+      const marker = document.createElement("meta");
+      marker.id = "analytics-loaded";
+      document.head.appendChild(marker);
+
+      const ym = siteData.analytics.yandexMetrikaId;
+      const ga = siteData.analytics.ga4Id;
+
+      if (ym) {
+        const s = document.createElement("script");
+        s.async = true;
+        s.src = "https://mc.yandex.ru/metrika/tag.js";
+        document.head.appendChild(s);
+        const init = document.createElement("script");
+        init.textContent = `window.ym=window.ym||function(){(window.ym.a=window.ym.a||[]).push(arguments)};window.ym.l=1*new Date();ym(${ym},"init",{clickmap:true,trackLinks:true,accurateTrackBounce:true});`;
+        document.head.appendChild(init);
+      }
+
+      if (ga) {
+        const s = document.createElement("script");
+        s.async = true;
+        s.src = `https://www.googletagmanager.com/gtag/js?id=${ga}`;
+        document.head.appendChild(s);
+        const init = document.createElement("script");
+        init.textContent = `window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag('js',new Date());gtag('config','${ga}');`;
+        document.head.appendChild(init);
+      }
+    };
+
+    load();
+    window.addEventListener(CONSENT_EVENT, load);
+    return () => window.removeEventListener(CONSENT_EVENT, load);
+  }, []);
+
+  return null;
 }
