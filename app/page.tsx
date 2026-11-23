@@ -41,7 +41,17 @@ export default function HomePage() {
           </div>
         </div>
         <div className="enter">
-          <Placeholder label="Фото: фасад магазина со вывеской Shanyraq, днём (снять)" ratio="4/3" className="min-h-64" />
+          <div className="overflow-hidden rounded-2xl bg-surface" style={{ aspectRatio: "4/3" }}>
+            {/* Фото: Unsplash, см. README (раздел «Фото») */}
+            <img
+              src="/photos/hero-stroyka.jpg"
+              alt="Строительство дома: деревянная крыша, кирпичная кладка и леса"
+              width={1066}
+              height={1600}
+              className="h-full w-full object-cover"
+              style={{ objectPosition: "50% 40%" }}
+            />
+          </div>
         </div>
       </section>
 

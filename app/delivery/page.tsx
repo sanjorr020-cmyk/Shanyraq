@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import Placeholder from "@/components/Placeholder";
 import { IconTruck, IconWhatsApp } from "@/components/Icons";
 import { siteData } from "@/lib/content";
 import { generalQuestion, waLink } from "@/lib/whatsapp";
@@ -12,6 +13,10 @@ export default function DeliveryPage() {
   return (
     <section className="mx-auto max-w-6xl px-4 py-12 md:px-6">
       <h1 className="text-4xl font-bold tracking-tight">Доставка и оплата</h1>
+
+      <div className="mt-8">
+        <Placeholder label="Фото: машина магазина или погрузка на доставку (снять)" ratio="21/9" />
+      </div>
 
       <div className="mt-10 grid gap-6 md:grid-cols-2">
         <div className="rounded-2xl border border-line p-6">

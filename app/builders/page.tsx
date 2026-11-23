@@ -11,6 +11,16 @@ export default function BuildersPage() {
   return (
     <section className="mx-auto grid max-w-6xl gap-12 px-4 py-12 md:grid-cols-2 md:px-6">
       <div>
+        <div className="mb-8 overflow-hidden rounded-2xl bg-surface" style={{ aspectRatio: "4/3" }}>
+          {/* Фото: Unsplash, см. README (раздел «Фото») */}
+          <img
+            src="/photos/builders-tools.jpg"
+            alt="Электроинструмент на рабочем столе"
+            width={1067}
+            height={1600}
+            className="h-full w-full object-cover"
+          />
+        </div>
         <h1 className="text-4xl font-bold tracking-tight">Для строителей и бригад</h1>
         <p className="mt-4 text-lg text-muted">
           Работаете на объектах? Оставьте заявку — подготовим оптовый расчёт и условия по объёму. Конкретные проценты
