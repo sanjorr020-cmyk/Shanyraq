@@ -16,8 +16,8 @@ export default function CatalogPage() {
       </p>
       <h2 className="sr-only">Категории товаров</h2>
       <div className="mt-10 grid grid-cols-2 gap-4 md:grid-cols-3 lg:grid-cols-4">
-        {categories.map((c) => (
-          <CategoryTile key={c.slug} category={c} />
+        {categories.map((c, i) => (
+          <CategoryTile key={c.slug} category={c} priority={i < 2} />
         ))}
       </div>
     </section>

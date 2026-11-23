@@ -1,7 +1,7 @@
 import Link from "next/link";
 import type { Category } from "@/lib/content";
 
-export default function CategoryTile({ category }: { category: Category }) {
+export default function CategoryTile({ category, priority = false }: { category: Category; priority?: boolean }) {
   return (
     <Link
       href={`/catalog/${category.slug}`}
@@ -12,7 +12,8 @@ export default function CategoryTile({ category }: { category: Category }) {
         <img
           src={category.cover}
           alt={category.title}
-          loading="lazy"
+          loading={priority ? "eager" : "lazy"}
+          fetchPriority={priority ? "high" : "auto"}
           decoding="async"
           width={800}
           height={600}

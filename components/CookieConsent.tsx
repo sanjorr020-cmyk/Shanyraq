@@ -36,27 +36,26 @@ export default function CookieConsent() {
       role="dialog"
       aria-live="polite"
       aria-label="Согласие на cookie"
-      className="fixed inset-x-3 bottom-20 z-50 mx-auto max-w-3xl rounded-2xl border border-line bg-white p-5 shadow-lg md:bottom-4"
+      className="fixed inset-x-3 bottom-20 z-50 mx-auto max-w-3xl rounded-2xl border border-line bg-white p-4 shadow-lg md:bottom-4"
     >
-      <p className="text-[15px]">
-        Мы используем счётчики посещаемости только с вашего согласия. Без согласия они не загружаются. Подробнее —{" "}
+      <p className="text-sm leading-5">
+        Счётчики — только с вашего согласия.{" "}
         <Link href="/privacy" className="underline underline-offset-4 hover:text-brand">
-          в политике конфиденциальности
+          Подробнее
         </Link>
-        .
       </p>
-      <div className="mt-4 flex flex-col gap-2 sm:flex-row">
+      <div className="mt-3 flex flex-col gap-2 sm:flex-row">
         <button
           type="button"
           onClick={() => choose("accepted")}
-          className="btn rounded-xl bg-ink px-5 py-2.5 font-semibold text-white hover:bg-black"
+          className="btn rounded-xl bg-ink px-4 py-2 text-sm font-semibold text-white hover:bg-black"
         >
           Принять
         </button>
         <button
           type="button"
           onClick={() => choose("declined")}
-          className="btn rounded-xl border border-line px-5 py-2.5 font-semibold hover:border-ink"
+          className="btn rounded-xl border border-line px-4 py-2 text-sm font-semibold hover:border-ink"
         >
           Только необходимые
         </button>

@@ -1,4 +1,6 @@
+import Image from "next/image";
 import Link from "next/link";
+import HeroPattern from "@/components/HeroPattern";
 import CategoryTile from "@/components/CategoryTile";
 import Placeholder from "@/components/Placeholder";
 import { IconArrow, IconCheck, IconClock, IconPhone, IconPin, IconRoute, IconTruck, IconWhatsApp } from "@/components/Icons";
@@ -12,7 +14,8 @@ export default function HomePage() {
   return (
     <>
       {/* Первый экран: тёплый фон, декоративный узор из знака, оффер и два действия */}
-      <section className="pattern-hero band-warm">
+      <section className="pattern-hero band-warm relative">
+        <HeroPattern />
         <div className="mx-auto grid max-w-6xl items-center gap-10 px-4 pb-14 pt-10 md:grid-cols-2 md:px-6 md:pt-16">
           <div className="enter">
             <p className="text-sm font-medium uppercase tracking-wide text-accent">
@@ -47,12 +50,13 @@ export default function HomePage() {
           <div className="enter">
             <div className="overflow-hidden rounded-2xl bg-surface" style={{ aspectRatio: "4/3" }}>
               {/* Фото: Unsplash, см. README (раздел «Фото») */}
-              <img
+              <Image
                 src="/photos/hero-stroyka.jpg"
                 alt="Строительство дома: деревянная крыша, кирпичная кладка и леса"
                 width={720}
                 height={540}
-                fetchPriority="high"
+                priority
+                sizes="(min-width: 768px) 50vw, 100vw"
                 className="h-full w-full object-cover"
                 style={{ objectPosition: "50% 40%" }}
               />

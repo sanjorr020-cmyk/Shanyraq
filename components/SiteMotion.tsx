@@ -1,8 +1,6 @@
 "use client";
 
 import { useEffect } from "react";
-import Lenis from "lenis";
-import { animate, inView } from "motion";
 
 /**
  * Мягкая анимация сайта:
@@ -16,6 +14,35 @@ export default function SiteMotion() {
     const reduce = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
     if (reduce) return;
 
+    let cleanup: (() => void) | undefined;
+    let cancelled = false;
+
+    // Lenis и Motion грузим после первой отрисовки и события load: не мешают LCP
+    const start = async () => {
+      const [{ default: Lenis }, { animate, inView }] = await Promise.all([import("lenis"), import("motion")]);
+      if (cancelled) return;
+      cleanup = init(Lenis, animate, inView);
+    };
+    const onLoad = () => setTimeout(start, 0);
+    if (document.readyState === "complete") onLoad();
+    else window.addEventListener("load", onLoad, { once: true });
+
+    return () => {
+      cancelled = true;
+      window.removeEventListener("load", onLoad);
+      cleanup?.();
+    };
+  }, []);
+
+  return null;
+}
+
+type LenisCtor = typeof import("lenis").default;
+type Animate = typeof import("motion").animate;
+type InView = typeof import("motion").inView;
+
+function init(Lenis: LenisCtor, animate: Animate, inView: InView): () => void {
+  {
     // Плавный скролл
     const lenis = new Lenis({ duration: 1.1, smoothWheel: true });
     let frame = 0;
@@ -52,7 +79,5 @@ export default function SiteMotion() {
         el.style.transform = "";
       });
     };
-  }, []);
-
-  return null;
+  }
 }
