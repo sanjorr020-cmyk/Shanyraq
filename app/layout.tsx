@@ -8,6 +8,7 @@ import ListPanel from "@/components/ListPanel";
 import { ListProvider } from "@/components/ListContext";
 import Analytics from "@/components/Analytics";
 import CookieConsent from "@/components/CookieConsent";
+import FloatButtons from "@/components/FloatButtons";
 import SiteMotion from "@/components/SiteMotion";
 import JsonLd from "@/components/JsonLd";
 import { siteData } from "@/lib/content";
@@ -62,6 +63,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
           <ListPanel />
           <SiteMotion />
           <CookieConsent />
+          <FloatButtons />
         </ListProvider>
         <JsonLd />
         <Analytics />
