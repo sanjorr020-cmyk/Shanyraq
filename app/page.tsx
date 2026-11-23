@@ -48,8 +48,9 @@ export default function HomePage() {
               <img
                 src="/photos/hero-stroyka.jpg"
                 alt="Строительство дома: деревянная крыша, кирпичная кладка и леса"
-                width={1066}
-                height={1600}
+                width={720}
+                height={540}
+                fetchPriority="high"
                 className="h-full w-full object-cover"
                 style={{ objectPosition: "50% 40%" }}
               />

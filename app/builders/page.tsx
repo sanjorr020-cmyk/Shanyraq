@@ -16,8 +16,8 @@ export default function BuildersPage() {
           <img
             src="/photos/builders-tools.jpg"
             alt="Электроинструмент на рабочем столе"
-            width={1067}
-            height={1600}
+            width={800}
+            height={600}
             className="h-full w-full object-cover"
           />
         </div>

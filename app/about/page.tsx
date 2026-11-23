@@ -17,8 +17,8 @@ export default function AboutPage() {
         <img
           src="/photos/about-plan-tools.jpg"
           alt="Чертёж этажа, рулетка, дрель и саморезы на деревянном полу"
-          width={1600}
-          height={1066}
+          width={800}
+          height={533}
           className="h-full w-full object-cover"
         />
       </div>
