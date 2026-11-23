@@ -26,7 +26,8 @@ export default function SiteMotion() {
     frame = requestAnimationFrame(raf);
 
     // Появление секций при прокрутке
-    const sections = Array.from(document.querySelectorAll<HTMLElement>("main > section"));
+    // Первый экран не скрываем: он виден сразу (LCP), у него своё появление через CSS (.enter)
+    const sections = Array.from(document.querySelectorAll<HTMLElement>("main > section:not(.pattern-hero)"));
     const stops: Array<() => void> = [];
     sections.forEach((el) => {
       el.style.opacity = "0";
