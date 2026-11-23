@@ -97,7 +97,9 @@ npm run start      # запуск собранного сайта
 
 - Сборка: `npm run build` проходит без ошибок.
 - Impeccable detect по главной, каталогу, категории, поиску, калькулятору, для строителей, политике: без замечаний.
-- Lighthouse mobile, главная (локальный прод-сервер): performance 96, accessibility 100, best practices 100, SEO 100.
+- Lighthouse mobile на проде (shanyraq-demo.vercel.app): главная — performance 95, каталог — 99; accessibility, best practices, SEO — 100.
+- Заголовки безопасности проверены на проде: CSP, HSTS, X-Content-Type-Options, Referrer-Policy, Permissions-Policy, X-Frame-Options, COOP.
+- npm audit: 0 уязвимостей.
 - Mobile 390px: горизонтальной прокрутки нет, отступ 16px.
 
 ## Деплой
