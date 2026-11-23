@@ -24,7 +24,7 @@ export default function Header() {
       <div className="mx-auto flex h-16 max-w-6xl items-center gap-4 px-4 md:px-6">
         <Link href="/" aria-label="Shanyraq — на главную" className="shrink-0">
           {/* Временный логотип; выбранный вариант подставляется сюда */}
-          <img src="/logo/logo-4-horizontal-header.svg" alt="Shanyraq" className="h-9 w-auto" />
+          <img src="/logo/logo-4-horizontal-header.svg" alt="Shanyraq" width={203} height={36} className="h-9 w-auto" />
         </Link>
 
         <nav aria-label="Основное меню" className="ml-6 hidden items-center gap-5 lg:flex">

@@ -18,7 +18,7 @@ export default function Footer() {
     <footer className="mt-20 border-t border-line bg-surface pb-24 md:pb-0">
       <div className="mx-auto grid max-w-6xl gap-10 px-4 py-12 md:grid-cols-3 md:px-6">
         <div>
-          <img src="/logo/logo-4-horizontal-header.svg" alt="Shanyraq" className="h-10 w-auto" />
+          <img src="/logo/logo-4-horizontal-header.svg" alt="Shanyraq" width={225} height={40} className="h-10 w-auto" />
           <p className="mt-4 max-w-xs text-muted">{siteData.tagline}</p>
         </div>
 
