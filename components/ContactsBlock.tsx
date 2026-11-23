@@ -1,4 +1,5 @@
 import { IconClock, IconPhone, IconPin, IconRoute, IconWhatsApp } from "@/components/Icons";
+import Reviews from "@/components/Reviews";
 import { siteData } from "@/lib/content";
 import { generalQuestion, waLink } from "@/lib/whatsapp";
 
@@ -74,6 +75,8 @@ export default function ContactsBlock() {
               Маршрут в 2ГИС
             </a>
           </div>
+
+          <Reviews />
         </div>
 
         <div className="flex flex-col gap-3">

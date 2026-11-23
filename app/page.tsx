@@ -3,6 +3,8 @@ import CategoryTile from "@/components/CategoryTile";
 import Placeholder from "@/components/Placeholder";
 import { IconArrow, IconCheck, IconClock, IconPhone, IconPin, IconRoute, IconTruck, IconWhatsApp } from "@/components/Icons";
 import ContactsBlock from "@/components/ContactsBlock";
+import Faq from "@/components/Faq";
+import Reviews from "@/components/Reviews";
 import { categories, siteData } from "@/lib/content";
 import { generalQuestion, waLink } from "@/lib/whatsapp";
 
@@ -254,20 +256,32 @@ export default function HomePage() {
           <div className="rounded-3xl bg-brand px-6 py-12 text-center text-white md:px-12">
             <h2 className="text-3xl font-bold tracking-tight">Не нашли нужное?</h2>
             <p className="mx-auto mt-3 max-w-xl text-white/90">
-              Напишите в WhatsApp, что нужно. Подскажем наличие, аналог или поможем с расчётом.
+              Пришлите название или фото в WhatsApp — подберём. Подскажем наличие, аналог или поможем с расчётом.
             </p>
-            <a
-              href={waLink(generalQuestion)}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="btn mt-7 inline-flex items-center justify-center gap-2 rounded-xl bg-white px-6 py-3.5 font-semibold text-brand hover:bg-surface"
-            >
-              <IconWhatsApp />
-              Написать в WhatsApp
-            </a>
+            <div className="mt-7 flex flex-col items-center justify-center gap-3 sm:flex-row">
+              <a
+                href={waLink("Здравствуйте! Не нашёл нужный товар. Пришлю фото или название — подберите, пожалуйста.")}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="btn inline-flex items-center justify-center gap-2 rounded-xl bg-white px-6 py-3.5 font-semibold text-brand hover:bg-surface"
+              >
+                <IconWhatsApp />
+                Прислать фото в WhatsApp
+              </a>
+              <a
+                href={waLink(generalQuestion)}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="btn inline-flex items-center justify-center gap-2 rounded-xl border border-white/60 px-6 py-3.5 font-semibold text-white hover:bg-white/10"
+              >
+                Задать вопрос
+              </a>
+            </div>
           </div>
         </div>
       </section>
+
+      <Faq />
 
       <ContactsBlock />
     </>

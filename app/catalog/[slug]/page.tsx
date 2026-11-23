@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 import { notFound } from "next/navigation";
-import ProductCard from "@/components/ProductCard";
+import Catalog from "@/components/Catalog";
 import { IconArrow } from "@/components/Icons";
 import { categories, getCategory, siteData } from "@/lib/content";
 
@@ -45,16 +45,7 @@ export default async function CategoryPage({ params }: { params: Promise<Params>
         <h2 id="items-title" className="sr-only">
           Товары: {cat.title}
         </h2>
-        <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
-          {cat.items.map((item) => (
-            <ProductCard
-              key={item.name}
-              id={`${cat.slug}:${item.name}`}
-              name={item.name}
-              categoryTitle={cat.title}
-            />
-          ))}
-        </div>
+        <Catalog lockedCategory={cat.slug} />
 
         <div className="mt-12 flex flex-col items-start gap-4 rounded-2xl bg-surface p-6 sm:flex-row sm:items-center sm:justify-between">
           <p className="text-muted">Не нашли нужную позицию? Напишите в WhatsApp — подскажем наличие и аналог.</p>

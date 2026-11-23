@@ -22,6 +22,8 @@ export default function CategoryTile({ category }: { category: Category }) {
       <div className="p-4">
         <h3 className="text-[17px] font-semibold leading-snug">{category.title}</h3>
         <p className="mt-1 text-sm text-muted">{category.description}</p>
+        {/* Цены «от» — заглушка, пока владелец не даст цены */}
+        <p className="mt-3 text-sm font-semibold">от … ₸ <span className="font-normal text-muted">· уточнить у владельца</span></p>
       </div>
     </Link>
   );
